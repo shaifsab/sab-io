@@ -1,0 +1,40 @@
+  <!-- Header -->
+  <%- include("./partials/header.ejs") %>
+
+  <!-- Main Content -->
+  <main class="auth-content">
+    <form class="auth-form" id="registerForm" method="POST" action="<%= process.env.BASE_URL %>/api/auth/register">
+      <h2>Create an Account</h2>
+
+      <!-- Global Error Field -->
+      <% if (locals.error) { %>
+      <div class="global-error" id="globalError"><%= error %></div>
+      <% } %>
+
+      <!-- Username Field -->
+      <input type="text" placeholder="Username" id="username" name="fullName">
+      <div class="input-error" id="usernameError"><%= locals.nameError %></div>
+
+      <!-- Email Field -->
+      <input type="email" placeholder="Email" id="email" name="email">
+      <div class="input-error" id="emailError"><%= locals.emailError %></div>
+
+      <!-- Password Field -->
+      <input type="password" placeholder="Password" id="password" name="password">
+      <div class="input-error" id="passwordError"><%= locals.passwordError %></div>
+
+      <!-- Submit Button -->
+      <button type="submit">Register</button>
+
+      <!-- Login Link -->
+      <p>Already have an account? <a href="<%= process.env.BASE_URL %>/login">Login here</a>.</p>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <%- include("./partials/footer.ejs") %>
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js"></script>
+</body>
+</html>

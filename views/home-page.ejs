@@ -1,0 +1,38 @@
+  <!-- Header -->
+<%- include("./partials/header.ejs") %>
+
+
+  <!-- Main Content -->
+  <main class="content">
+   
+    <!-- Overall Error Field -->
+    <div class="overall-error-field" id="overallError"><%= locals.message %></div>
+
+    
+    <form class="url-form" action="<%= process.env.BASE_URL %>/api/generate/url" method="POST">
+      <input type="text" placeholder="Paste your url here..." name="mainUrl"  value="<%= locals.mainUrl %>">
+      <button type="submit">Generate</button>
+    </form>
+
+    <!-- Popup Div -->
+    <% if(locals.shortUrl){ %>
+    <div class="generate-item ">
+      <div class="short-url-generate">
+       <a  target="_blank" href="<%= locals.shortUrl%>"><p id="short-url"><%= locals.shortUrl%></p></a> 
+        <button id="copy-btn" aria-label="Copy Shortened URL">Copy</button>
+      </div>
+      <form action="/"  method="GET">
+      <button type="submit" id="new-btn" aria-label="Generate New URL">Generate New</button>
+    </form>
+    </div>
+    <% } %>
+    
+  </main>
+
+  <!-- Footer -->
+  <%- include("./partials/footer.ejs") %>
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js"></script>
+</body>
+</html>

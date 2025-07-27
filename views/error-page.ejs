@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Short URL</title>
+  <link rel="icon" type="image/png" href="/url.png">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+  <!-- Main Content -->
+  <main class="error-content">
+    <div class="error-container">
+      <!-- Lottie Animation -->
+      <lottie-player
+        src="/assets/animations/error-animation.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px;"
+        loop
+        autoplay
+      ></lottie-player>
+
+      <!-- Error Message -->
+      <p class="error-message">Short URL not available</p>
+
+      <!-- Go Back to Home Button -->
+      <a href="<%= process.env.BASE_URL || '/' %>" class="error-button">Go back to Home</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <%- include("./partials/footer.ejs") %>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const isDarkMode = localStorage.getItem("theme") === "dark";
+      document.body.classList.toggle("dark-mode", isDarkMode);
+    });
+  </script>
+</body>
+</html>

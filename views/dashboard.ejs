@@ -1,0 +1,59 @@
+  <!-- Header -->
+  <%- include("./partials/header.ejs") %>
+
+  <!-- Main Content -->
+  <main class="dashboard-content">
+    <div class="user-info">
+      <h2><%= userData.fullName %></h2>
+      <p><strong>Email: </strong><%= userData.email %></p>
+    </div>
+
+    <div class="history-section">
+      <h3>Visiting History</h3>
+
+      <!-- Table for Visiting History -->
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Original URL</th>
+            <th>Short URL</th>
+            <th>Last Visit Time</th>
+            <th>Visits Count</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if (userData.userUrls && userData.userUrls.length > 0) { %>
+              <% userData.userUrls.forEach(url => { %>
+                  <tr>
+                      <td><a href="<%= url.mainUrl %>" target="_blank"><%= url.mainUrl %></a></td>
+                      <td><a href="<%= url.shortUrl %>" target="_blank"><%= url.shortUrl %></a></td>
+                      <td>
+                          <% if (url.visitedHistory && url.visitedHistory.length > 0) { %>
+                              <%= url.visitedHistory[url.visitedHistory.length - 1].clicked %>
+                          <% } else { %>
+                              No Visits
+                          <% } %>
+                      </td>
+                      <td><%= url.visitedHistory.length %></td> <!-- Number of visits -->
+                  </tr>
+              <% }) %>
+          <% } else { %>
+              <tr>
+                  <td colspan="4">No URLs found.</td>
+              </tr>
+          <% } %>
+      </tbody>
+
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <%- include("./partials/footer.ejs") %>
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js" defer></script>
+
+</body>
+</html>

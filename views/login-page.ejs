@@ -1,0 +1,37 @@
+  <!-- Header -->
+  <%- include("./partials/header.ejs") %>
+
+  <!-- Main Content -->
+  <main class="login-content">
+    <form class="login-form" id="loginForm" action="<%= process.env.BASE_URL %>/api/auth/login" method="POST">
+      <h2>Welcome back</h2>
+
+      <!-- Overall Error Field -->
+      <% if (locals.error) { %>
+      <div class="overall-error-field" id="overallError"><%= error %></div>
+      <% } %>
+
+      <!-- Username Field -->
+      <input type="email" placeholder="Enter your email" id="username" name="email">
+      <div class="error-field" id="usernameError"><%= locals.emailError %></div>
+
+      <!-- Password Field -->
+      <input type="password" placeholder="Enter your Password" id="password" name="password">
+      <div class="error-field" id="passwordError"><%= locals.passwordError %></div>
+
+
+      <!-- Submit Button -->
+      <button type="submit">Login</button>
+
+      <!-- Register Link -->
+      <p>Don't have an account? <a href="<%= process.env.BASE_URL %>/register">Register here</a>.</p>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <%- include("./partials/footer.ejs") %>
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js"></script>
+</body>
+</html>
