@@ -13,7 +13,7 @@ SAB-IO is a robust URL shortening service designed to create, manage, and track 
 
 ## 🌐 Live Demo
 
-[Live Link](#) *(To be added later)*
+[Live Link](#) : https://sab-io.onrender.com
 
 ---
 
@@ -67,15 +67,15 @@ Follow these steps to set up SAB-IO locally:
    - Create a `.env` file in the root directory.
    - Add the following environment variables based on your setup:
      ```env
-     MONGO_URL=mongodb://localhost:27017/url
-     MONGO_USER=your_mongodb_username
-     MONGO_PASSWORD=your_mongodb_password
-     MONGO_CLUSTER=your_mongodb_cluster
-     # MONGO_DB=url
-     BASE_URL=http://localhost:5000
-     BASE_API=/api
-     BASE_PORT=5000
-     JWT_TOKEN=your_jwt_secret
+     MONGO_URL          = your_mongodb_connection_string
+     MONGO_USER         = your_mongodb_username
+     MONGO_PASSWORD     = your_mongodb_password
+     MONGO_CLUSTER      = your_mongodb_cluster
+     MONGO_DB           = url
+     BASE_URL           = http://localhost:5000
+     BASE_API           = /api
+     BASE_PORT          = 5000
+     JWT_TOKEN          = your_jwt_secret
      ```
    - Replace `MONGO_USER`, `MONGO_PASSWORD`, `MONGO_CLUSTER`, and `JWT_TOKEN` with your own values. Uncomment and set `MONGO_DB` if needed, or update `BASE_URL` for production (e.g., `https://url-sab-io.onrender.com`).
 
@@ -84,12 +84,6 @@ Follow these steps to set up SAB-IO locally:
    npm start
    ```
    The application will be available at `http://localhost:5000` (or your configured `BASE_URL`).
-
-5. **Run in Development Mode**:
-   ```bash
-   npm run dev
-   ```
-   Uses `nodemon` for automatic server restarts during development.
 
 ---
 
@@ -115,7 +109,6 @@ SAB-IO provides a RESTful API for programmatic access. Key endpoints include:
 - **GET /:shortId**: Redirect to the original URL.
 - **GET /api/urls**: Retrieve a list of shortened URLs (authenticated users only, requires JWT).
 
-*Note*: Full API documentation is available in the `/docs` directory.
 
 ---
 
@@ -141,9 +134,8 @@ sab-io/
 ├── /models/           # MongoDB schemas
 ├── /controllers/      # Business logic
 ├── /middleware/       # Custom middleware (e.g., authentication)
-├── /docs/             # API documentation
 ├── .env               # Environment variables
-├── app.js             # Main application file
+├── server.js             # Main application file
 ├── package.json       # Project metadata and dependencies
 └── README.md          # This file
 ```
@@ -175,7 +167,7 @@ This project is licensed under the [MIT License](LICENSE).
 For questions or feedback, reach out to the project maintainer:
 
 - **GitHub**: [shaifsab](https://github.com/shaifsab)
-- **Email**: shaifsab@example.com
+- **Email**: workwithshaif@example.com
 
 ---
 
