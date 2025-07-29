@@ -167,7 +167,7 @@ This project is licensed under the [MIT License](LICENSE).
 For questions or feedback, reach out to the project maintainer:
 
 - **GitHub**: [shaifsab](https://github.com/shaifsab)
-- **Email**: workwithshaif@example.com
+- **Email**: workwithshaif@gmail.com
 
 ---
 
